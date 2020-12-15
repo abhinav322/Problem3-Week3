@@ -36,3 +36,14 @@ elseif isa(ABS_output,'Simulink.SimulationData.Dataset')
     title('Slip'); xlabel('Time(sec)'); ylabel('Normalized Relative Slip');
 
 end
+
+Time_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Time; % Save the ABS results
+Stop_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Data;
+ctrl=0;
+Time_no_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Time; %save the non-ABS results
+Stop_no_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Data;
+plot(Time_ABS, Stop_ABS, Time_no_ABS, Stop_no_ABS); %code not shown in example
+xlabel('Slip Time (sec)'); 
+ylabel('Stopping Distance (ft)');
+legend('With ABS','Without ABS','Location','SouthEast');
+title('Stopping distance for hard braking with and without ABS');
