@@ -37,11 +37,11 @@ elseif isa(ABS_output,'Simulink.SimulationData.Dataset')
 
 end
 
-Time_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Time; % Save the ABS results
-Stop_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Data;
+Time_ABS = ABS_output.get('yout').Values.Sd.Time; % Save the ABS results
+Stop_ABS = ABS_output.get('yout').Values.Sd.Data;
 ctrl=0;
-Time_no_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Time; %save the non-ABS results
-Stop_no_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Data;
+Time_no_ABS = ABS_output.get('yout').Values.Sd.Time; %save the non-ABS results
+Stop_no_ABS = ABS_output.get('yout').Values.Sd.Data;
 plot(Time_ABS, Stop_ABS, Time_no_ABS, Stop_no_ABS); %code not shown in example
 xlabel('Slip Time (sec)'); 
 ylabel('Stopping Distance (ft)');
