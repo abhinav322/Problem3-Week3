@@ -4,7 +4,7 @@
 % run the simulation by executing the |sim('sldemo_absbrake')| command in
 % MATLAB. ABS is turned on during this simulation.
 
-evalc('sim(''sldemo_absbrake'')'); %this code is not shown in the example
+evalc('sim(''ABS'')'); %this code is not shown in the example
 %%
 %
 % * Note: The model logs relevant data to MATLAB workspace in a structure
@@ -12,8 +12,8 @@ evalc('sim(''sldemo_absbrake'')'); %this code is not shown in the example
 % this case |yout| and |slp| are logged.  Read more about Signal Logging in
 % Simulink Help.
 
-Time_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Time; % Save the ABS results
-Stop_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Data;
+Time_ABS = ABS_output.get('yout').Values.Sd.Time; % Save the ABS results
+Stop_ABS = ABS_output.get('yout').Values.Sd.Data;
 
 %% 
 %
@@ -39,11 +39,11 @@ ctrl=0;
 %
 % Now run the simulation again. This will model braking without ABS. 
 
-evalc('sim(''sldemo_absbrake'')'); %this code is not shown in the example
+evalc('sim(''ABS'')'); %this code is not shown in the example
 
 %% 
-Time_no_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Time; %save the non-ABS results
-Stop_no_ABS = sldemo_absbrake_output.get('yout').Values.Sd.Data;
+Time_no_ABS = ABS_output.get('yout').Values.Sd.Time; %save the non-ABS results
+Stop_no_ABS = ABS_output.get('yout').Values.Sd.Data;
 %% Braking With ABS Versus Braking Without ABS
 %
 % In the plot showing vehicle speed and wheel speed, observe that the wheel
@@ -67,7 +67,6 @@ title('Stopping distance for hard braking with and without ABS');
 %% Closing the Model
 %
 % Close the model.  Close the 'Wheel Speed' subsystem. Clear logged data.
-close_system('sldemo_absbrake', 0);
-close_system('sldemo_wheelspeed_absbrake', 0);
-clear sldemo_absbrake_output Stop_ABS Stop_no_ABS Time_ABS Time_no_ABS;
+close_system('ABS', 0);
+clear ABS_output Stop_ABS Stop_no_ABS Time_ABS Time_no_ABS;
 clear mex;
