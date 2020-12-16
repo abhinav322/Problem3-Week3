@@ -33,29 +33,6 @@ elseif isa(ABS_output,'Simulink.SimulationData.Dataset')
     figure(h);
     plot(ABS_output.get('slip').Values.Time, ...
          ABS_output.get('slip').Values.Data);
-    title('Slip'); xlabel('Time(sec)'); ylabel('Normalized Relative Slip');
-    
-    plot(ABS_output.get('yout1').Values.Vs.Time, ...
-         ABS_output.get('yout1').Values.Vs.Data, ... 
-         ABS_output.get('yout1').Values.Ww.Time, ...
-         ABS_output.get('yout1').Values.Ww.Data);
-    legend('Vehicle Speed \omega_v','Wheel Speed \omega_w','Location','best'); 
-    title('Vehicle speed and wheel speed'); ylabel('Speed(rad/sec)'); xlabel('Time(sec)');
-
-    h = findobj(0, 'Name', 'ABS Slip');
-    if isempty(h),
-      h=figure('Position',[486    239   452   257],...
-               'Name','ABS Slip',...
-               'NumberTitle','off');
-    end
-
-    figure(h);
-    plot(ABS_output.get('slip1').Values.Time, ...
-         ABS_output.get('slip1').Values.Data);
-    title('Slip'); xlabel('Time(sec)'); ylabel('Normalized Relative Slip');
-    
-    
-    
-    
+    title('Slip'); xlabel('Time(sec)'); ylabel('Normalized Relative Slip'); 
 
 end
