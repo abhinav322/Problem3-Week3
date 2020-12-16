@@ -31,8 +31,8 @@ elseif isa(ABS_output,'Simulink.SimulationData.Dataset')
     end
 
     figure(h);
-    plot(ABS_output.get('slp').Values.Time, ...
-         ABS_output.get('slp').Values.Data);
+    plot(ABS_output.get('slip').Values.Time, ...
+         ABS_output.get('slip').Values.Data);
     title('Slip'); xlabel('Time(sec)'); ylabel('Normalized Relative Slip');
 
 end
